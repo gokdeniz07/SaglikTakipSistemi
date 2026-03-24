@@ -1,0 +1,14 @@
+C:\Users\gokde\Desktop\ndp-yl-odev\SaglikIzSistemi\bin\Debug\net7.0\SaglikIzSistemi.exe
+C:\Users\gokde\Desktop\ndp-yl-odev\SaglikIzSistemi\bin\Debug\net7.0\SaglikIzSistemi.deps.json
+C:\Users\gokde\Desktop\ndp-yl-odev\SaglikIzSistemi\bin\Debug\net7.0\SaglikIzSistemi.runtimeconfig.json
+C:\Users\gokde\Desktop\ndp-yl-odev\SaglikIzSistemi\bin\Debug\net7.0\SaglikIzSistemi.dll
+C:\Users\gokde\Desktop\ndp-yl-odev\SaglikIzSistemi\bin\Debug\net7.0\SaglikIzSistemi.pdb
+C:\Users\gokde\Desktop\ndp-yl-odev\SaglikIzSistemi\obj\Debug\net7.0\SaglikIzSistemi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gokde\Desktop\ndp-yl-odev\SaglikIzSistemi\obj\Debug\net7.0\SaglikIzSistemi.AssemblyInfoInputs.cache
+C:\Users\gokde\Desktop\ndp-yl-odev\SaglikIzSistemi\obj\Debug\net7.0\SaglikIzSistemi.AssemblyInfo.cs
+C:\Users\gokde\Desktop\ndp-yl-odev\SaglikIzSistemi\obj\Debug\net7.0\SaglikIzSistemi.csproj.CoreCompileInputs.cache
+C:\Users\gokde\Desktop\ndp-yl-odev\SaglikIzSistemi\obj\Debug\net7.0\SaglikIzSistemi.dll
+C:\Users\gokde\Desktop\ndp-yl-odev\SaglikIzSistemi\obj\Debug\net7.0\refint\SaglikIzSistemi.dll
+C:\Users\gokde\Desktop\ndp-yl-odev\SaglikIzSistemi\obj\Debug\net7.0\SaglikIzSistemi.pdb
+C:\Users\gokde\Desktop\ndp-yl-odev\SaglikIzSistemi\obj\Debug\net7.0\SaglikIzSistemi.genruntimeconfig.cache
+C:\Users\gokde\Desktop\ndp-yl-odev\SaglikIzSistemi\obj\Debug\net7.0\ref\SaglikIzSistemi.dll
