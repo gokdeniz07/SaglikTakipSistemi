@@ -1,17 +1,19 @@
 ﻿using System;
-using SaglikIzSistemi.Yardimcilar;
+using System.Windows.Forms;
+using SaglikIzSistemi.Arayuz;
 
 namespace SaglikIzSistemi
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] args)
+        [STAThread] // Arayüz için bu şarttır
+        static void Main()
         {
-            // Bizim yazdığımız test motorunu çağırıyoruz
-            VeriUretici.Calistir();
-
-            Console.WriteLine("\nTest bitti. Kapatmak icin bir tusa bas...");
-            Console.ReadKey();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            
+            // Konsol yerine bizim AnaForm'u açıyoruz
+            Application.Run(new AnaForm());
         }
     }
 }

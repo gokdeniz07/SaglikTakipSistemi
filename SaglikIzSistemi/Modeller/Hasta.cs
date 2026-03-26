@@ -1,17 +1,15 @@
 using System.Collections.Generic;
+using System.Linq; // Silme işlemi için FirstOrDefault kullanacağız
 
 namespace SaglikIzSistemi.Modeller
 {
     public class Hasta
     {
-        // TC No sadece constructor'da set edilebilir, dışarıdan değiştirilemez.
         public string TcNo { get; }
         public string AdSoyad { get; set; }
 
-        // KAPSÜLLEME: Listeyi private tutarak dış müdahaleye kapattık.
         private List<Sensor> _sensorler;
 
-        // Dışarıya sadece 'Okunabilir' bir liste sunuyoruz.
         public IReadOnlyList<Sensor> Sensorler => _sensorler;
 
         public Hasta(string tc, string ad)
@@ -21,12 +19,23 @@ namespace SaglikIzSistemi.Modeller
             _sensorler = new List<Sensor>();
         }
 
-        // Listeye veri ekleme işlemini bir metot üzerinden kontrol ediyoruz.
         public void SensorEkle(Sensor yeniSensor)
         {
             if (yeniSensor != null)
             {
                 _sensorler.Add(yeniSensor);
+            }
+        }
+
+        // SİLME: ID üzerinden listeden sensör çıkartma yeteneği ekledik.
+        public void SensorSil(string sensorId)
+        {
+            // ID'si eşleşen ilk sensörü buluyoruz
+            var silinecek = _sensorler.FirstOrDefault(s => s.SensorId == sensorId);
+            
+            if (silinecek != null)
+            {
+                _sensorler.Remove(silinecek);
             }
         }
     }

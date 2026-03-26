@@ -1,0 +1,33 @@
+2026-03-26 14:07:46 | Ateş Sensörü (S-b74e) | Değer: 36,9
+2026-03-26 14:07:46 | Nabız Sensörü (S-f507) | Değer: 81,0
+2026-03-26 14:07:53 | Ateş Sensörü (S-b74e) | Değer: 39,3
+2026-03-26 14:07:53 | Nabız Sensörü (S-f507) | Değer: 75,0
+2026-03-26 14:08:03 | Ateş Sensörü (S-b74e) | Değer: 35,5
+2026-03-26 14:08:03 | Nabız Sensörü (S-f507) | Değer: 110,0
+2026-03-26 14:08:03 | Oksijen Sensörü (SpO2) (S-99cb) | Değer: 97,0
+2026-03-26 14:43:39 | Nabız Sensörü (S-8627) | Değer: 89,0
+2026-03-26 14:43:39 | Ateş Sensörü (S-75b0) | Değer: 40,4
+2026-03-26 14:43:48 | Nabız Sensörü (S-8627) | Değer: 94,0
+2026-03-26 14:43:48 | Ateş Sensörü (S-75b0) | Değer: 39,1
+2026-03-26 14:43:48 | Oksijen Sensörü (SpO2) (S-bc37) | Değer: 90,0
+2026-03-26 14:43:58 | Ateş Sensörü (S-75b0) | Değer: 38,6
+2026-03-26 14:43:58 | Oksijen Sensörü (SpO2) (S-bc37) | Değer: 93,0
+2026-03-26 14:44:01 | Ateş Sensörü (S-75b0) | Değer: 40,9
+2026-03-26 14:44:01 | Oksijen Sensörü (SpO2) (S-bc37) | Değer: 100,0
+2026-03-26 14:44:01 | Ateş Sensörü (S-75b0) | Değer: 36,9
+2026-03-26 14:44:01 | Oksijen Sensörü (SpO2) (S-bc37) | Değer: 94,0
+2026-03-26 15:16:48 | Nabız Sensörü (S-9f1a) | Değer: 85,0
+2026-03-26 15:16:48 | Ateş Sensörü (S-c620) | Değer: 37,2
+2026-03-26 15:16:50 | Nabız Sensörü (S-9f1a) | Değer: 114,0
+2026-03-26 15:16:50 | Ateş Sensörü (S-c620) | Değer: 35,8
+2026-03-26 15:16:50 | Oksijen Sensörü (SpO2) (S-efb4) | Değer: 95,0
+2026-03-26 15:16:54 | Nabız Sensörü (S-9f1a) | Değer: 112,0
+2026-03-26 15:16:54 | Ateş Sensörü (S-c620) | Değer: 37,0
+2026-03-26 15:16:54 | Oksijen Sensörü (SpO2) (S-efb4) | Değer: 90,0
+2026-03-26 15:16:57 | Nabız Sensörü (S-9f1a) | Değer: 64,0
+2026-03-26 15:16:57 | Ateş Sensörü (S-c620) | Değer: 37,0
+2026-03-26 15:16:57 | Oksijen Sensörü (SpO2) (S-efb4) | Değer: 100,0
+2026-03-26 15:17:16 | Nabız Sensörü (S-7055) | Değer: 102,0
+2026-03-26 15:17:16 | Ateş Sensörü (S-02b3) | Değer: 38,4
+2026-03-26 15:17:17 | Nabız Sensörü (S-7055) | Değer: 119,0
+2026-03-26 15:17:17 | Ateş Sensörü (S-02b3) | Değer: 41,0
