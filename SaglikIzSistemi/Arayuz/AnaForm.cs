@@ -8,10 +8,11 @@ namespace SaglikIzSistemi.Arayuz
 {
     public class AnaForm : Form
     {
+        // 1. DEĞİŞKENLER: Her şeyi tek sefer tanımlıyoruz.
         private Hasta _hasta;
         private SensorYoneticisi _yonetici;
-
-        // BILESENLER: Artik 'lsvSensorler' ismini kullaniyoruz (ListView oldugu icin)
+        private Kullanici _girisYapanKullanici;
+        private System.Windows.Forms.Timer _otomatikOlcumTimer;
         private ListView lsvSensorler;
         private Button btnEkle;
         private Button btnSil;
@@ -23,21 +24,58 @@ namespace SaglikIzSistemi.Arayuz
         private Label lblKritikSayisi;
         private Label lblSistemDurumu;
 
-        public AnaForm()
+        // 2. CONSTRUCTOR (Yapıcı Metot)
+        public AnaForm(Kullanici user) 
         {
-            this.Text = "Sağlıkİz - IoT Yönetim Paneli";
-            this.Size = new Size(480, 500);
+            _girisYapanKullanici = user; 
+            
+            this.Text = $"Sağlıkİz - {_girisYapanKullanici.Rol} Paneli"; 
+            this.Size = new Size(480, 520);
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            // Arka Plan Verileri
             _hasta = new Hasta("12345678901", "Gökdeniz Demir");
             _yonetici = new SensorYoneticisi();
             
-            // Gozlemcileri (Observers) ise aliyoruz
             _yonetici.GozlemciEkle(new AlarmSistemi());
             _yonetici.GozlemciEkle(new LogSistemi());
 
             BilesenleriHazirla();
+
+            // --- YETKİ VE OTOMASYON KONTROLÜ ---
+            if (_girisYapanKullanici.Rol == "Hasta")
+            {
+                // 1. Hasta için varsayılan sensörleri biz ekliyoruz
+                _hasta.SensorEkle(new NabizSensoru("H-01"));
+                _hasta.SensorEkle(new AtesSensoru("H-02"));
+                _hasta.SensorEkle(new OksijenSensoru("H-03"));
+                ListeyiGuncelle();
+
+                // 2. Müdahaleyi engelle (Butonları kapat)
+                btnEkle.Enabled = false; 
+                btnSil.Enabled = false;  
+                cmbSensorTipi.Enabled = false;
+                btnOlcumYap.Visible = false; // Manuel ölçüm butonunu tamamen gizleyebiliriz
+
+                // 3. 5 Saniyede bir otomatik ölçüm yapacak Timer'ı kur
+                _otomatikOlcumTimer = new System.Windows.Forms.Timer();
+                _otomatikOlcumTimer.Interval = 5000; // 5 saniye
+                _otomatikOlcumTimer.Tick += (s, e) => BtnOlcumYap_Click(null, null); // Butona basılmış gibi yap
+                _otomatikOlcumTimer.Start();
+
+                lblSistemDurumu.Text = "Mod: Otomatik Canlı İzleme";
+                lblSistemDurumu.ForeColor = Color.Blue;
+            }
+            else if (_girisYapanKullanici.Rol == "Doktor")
+            {
+                btnEkle.Enabled = true; 
+                btnSil.Enabled = true;  
+                cmbSensorTipi.Enabled = true;
+                btnOlcumYap.Visible = true;
+                lblSistemDurumu.Text = "Mod: Yönetici (Manuel)";
+                lblSistemDurumu.ForeColor = Color.DarkGreen;
+            }
+
+            IstatistikGuncelle();
         }
 
         private void BilesenleriHazirla()
@@ -73,17 +111,16 @@ namespace SaglikIzSistemi.Arayuz
             btnEkle = new Button() { Text = "Sensör Ekle", Location = new Point(180, 48), Width = 100 };
             btnEkle.Click += BtnEkle_Click;
 
-            // 4. SENSÖR LİSTESİ (ListView - Tablo Yapısı)
+            // 4. SENSÖR LİSTESİ
             lsvSensorler = new ListView() 
             { 
                 Location = new Point(20, 90), 
                 Size = new Size(420, 200),
-                View = View.Details,       // Tablo gorunumu
-                FullRowSelect = true,      // Satiri komple secer
-                GridLines = true           // Cizgileri gosterir
+                View = View.Details,
+                FullRowSelect = true,
+                GridLines = true
             };
             
-            // Tablo sütunlarını ekleyelim
             lsvSensorler.Columns.Add("Sensör Tipi", 150);
             lsvSensorler.Columns.Add("ID", 80);
             lsvSensorler.Columns.Add("Durum / Değer", 150);
@@ -96,17 +133,15 @@ namespace SaglikIzSistemi.Arayuz
             btnOlcumYap = new Button() { Text = "Tüm Sensörlerden Veri Oku", Location = new Point(200, 300), Width = 240, BackColor = Color.LightGreen };
             btnOlcumYap.Click += BtnOlcumYap_Click;
 
-            this.Controls.AddRange(new Control[] { lblHastaBilgi, cmbSensorTipi, btnEkle, lsvSensorler, btnSil, btnOlcumYap });
+            this.Controls.AddRange(new Control[] { cmbSensorTipi, btnEkle, lsvSensorler, btnSil, btnOlcumYap });
         }
 
         private void BtnEkle_Click(object sender, EventArgs e)
         {
-            // Benzersiz bir ID uret
             string id = "S-" + (Guid.NewGuid().ToString().Substring(0, 4));
             Sensor yeni;
-
-            // Secilen tipe gore nesne uret (Polimorfizm hazırlığı)
             string secim = cmbSensorTipi.SelectedItem.ToString();
+            
             if (secim == "Nabız Sensörü") yeni = new NabizSensoru(id);
             else if (secim == "Ateş Sensörü") yeni = new AtesSensoru(id);
             else yeni = new OksijenSensoru(id);
@@ -132,7 +167,6 @@ namespace SaglikIzSistemi.Arayuz
             }
             catch (Exception ex)
             {
-                // Programın çökmesini engeller ve hatayı kullanıcıya gösterir
                 MessageBox.Show("Silme işlemi sırasında bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -142,27 +176,23 @@ namespace SaglikIzSistemi.Arayuz
             lsvSensorler.Items.Clear();
             foreach (var sensor in _hasta.Sensorler)
             {
-                // Olcumu yap ve Observer'lara haber ver
                 _yonetici.VeriGuncelle(sensor);
-
-                // Tablo satiri olustur
                 ListViewItem satir = new ListViewItem(sensor.SensorAdi);
                 satir.SubItems.Add(sensor.SensorId);
                 satir.SubItems.Add(sensor.MevcutDeger.ToString("F1"));
 
-                // RENKLENDIRME MANTIGI (Einstein Modu: Acik ve Basit)
                 if (sensor.KritikMi())
                 {
                     satir.BackColor = Color.Red;
-                    satir.ForeColor = Color.White; // Kirmizi uzerine beyaz yazi
+                    satir.ForeColor = Color.White;
                 }
                 else
                 {
                     satir.BackColor = Color.LightGreen;
                 }
-
                 lsvSensorler.Items.Add(satir);
             }
+            IstatistikGuncelle();
         }
 
         private void ListeyiGuncelle()
@@ -175,13 +205,13 @@ namespace SaglikIzSistemi.Arayuz
                 satir.SubItems.Add("Bekliyor...");
                 lsvSensorler.Items.Add(satir);
             }
+            IstatistikGuncelle();
         }
 
         private void IstatistikGuncelle()
         {
             int toplam = _hasta.Sensorler.Count;
             int kritik = 0;
-
             foreach (var s in _hasta.Sensorler)
             {
                 if (s.KritikMi()) kritik++;
@@ -195,7 +225,7 @@ namespace SaglikIzSistemi.Arayuz
                 lblSistemDurumu.Text = "SİSTEM DURUMU: ACİL MÜDAHALE!";
                 lblSistemDurumu.ForeColor = Color.Red;
             }
-            else
+            else if (toplam > 0)
             {
                 lblSistemDurumu.Text = "SİSTEM DURUMU: HER ŞEY YOLUNDA";
                 lblSistemDurumu.ForeColor = Color.Green;

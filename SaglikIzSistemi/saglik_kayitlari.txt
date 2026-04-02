@@ -31,3 +31,42 @@
 2026-03-26 15:17:16 | Ateş Sensörü (S-02b3) | Değer: 38,4
 2026-03-26 15:17:17 | Nabız Sensörü (S-7055) | Değer: 119,0
 2026-03-26 15:17:17 | Ateş Sensörü (S-02b3) | Değer: 41,0
+2026-03-26 15:34:26 | Nabız Sensörü (S-786e) | Değer: 75,0
+2026-03-26 15:34:26 | Ateş Sensörü (S-67a9) | Değer: 40,2
+2026-03-26 15:34:28 | Nabız Sensörü (S-786e) | Değer: 66,0
+2026-03-26 15:34:28 | Ateş Sensörü (S-67a9) | Değer: 38,1
+2026-03-26 15:34:29 | Nabız Sensörü (S-786e) | Değer: 60,0
+2026-03-26 15:34:29 | Ateş Sensörü (S-67a9) | Değer: 37,6
+2026-03-26 15:34:30 | Nabız Sensörü (S-786e) | Değer: 87,0
+2026-03-26 15:34:30 | Ateş Sensörü (S-67a9) | Değer: 39,2
+2026-04-01 14:41:31 | Nabız Sensörü (S-5459) | Değer: 87,0
+2026-04-01 14:41:31 | Ateş Sensörü (S-94c5) | Değer: 39,2
+2026-04-01 14:41:47 | Nabız Sensörü (S-5459) | Değer: 65,0
+2026-04-01 14:41:47 | Ateş Sensörü (S-94c5) | Değer: 37,3
+2026-04-01 14:41:47 | Oksijen Sensörü (SpO2) (S-d790) | Değer: 93,0
+2026-04-01 14:41:56 | Nabız Sensörü (S-5459) | Değer: 108,0
+2026-04-01 14:41:56 | Oksijen Sensörü (SpO2) (S-d790) | Değer: 93,0
+2026-04-02 14:31:15 | Nabız Sensörü (S-5f97) | Değer: 116,0
+2026-04-02 14:31:15 | Ateş Sensörü (S-1f0c) | Değer: 40,0
+2026-04-02 14:31:19 | Nabız Sensörü (S-5f97) | Değer: 62,0
+2026-04-02 14:31:19 | Ateş Sensörü (S-1f0c) | Değer: 36,7
+2026-04-02 14:31:19 | Oksijen Sensörü (SpO2) (S-de1d) | Değer: 96,0
+2026-04-02 14:31:24 | Nabız Sensörü (S-5f97) | Değer: 102,0
+2026-04-02 14:31:24 | Oksijen Sensörü (SpO2) (S-de1d) | Değer: 96,0
+2026-04-02 14:31:25 | Nabız Sensörü (S-5f97) | Değer: 96,0
+2026-04-02 14:31:25 | Oksijen Sensörü (SpO2) (S-de1d) | Değer: 96,0
+2026-04-02 14:39:51 | Nabız Sensörü (S-e599) | Değer: 75,0
+2026-04-02 14:39:51 | Ateş Sensörü (S-ab32) | Değer: 35,6
+2026-04-02 14:39:51 | Nabız Sensörü (S-e599) | Değer: 91,0
+2026-04-02 14:39:51 | Ateş Sensörü (S-ab32) | Değer: 40,3
+2026-04-02 14:39:57 | Nabız Sensörü (S-e599) | Değer: 110,0
+2026-04-02 14:39:57 | Ateş Sensörü (S-ab32) | Değer: 37,3
+2026-04-02 14:39:57 | Oksijen Sensörü (SpO2) (S-11c7) | Değer: 92,0
+2026-04-02 14:40:01 | Nabız Sensörü (S-e599) | Değer: 83,0
+2026-04-02 14:40:01 | Oksijen Sensörü (SpO2) (S-11c7) | Değer: 89,0
+2026-04-02 14:40:14 | Nabız Sensörü (H-01) | Değer: 101,0
+2026-04-02 14:40:14 | Ateş Sensörü (H-02) | Değer: 35,7
+2026-04-02 14:40:14 | Oksijen Sensörü (SpO2) (H-03) | Değer: 99,0
+2026-04-02 14:40:19 | Nabız Sensörü (H-01) | Değer: 104,0
+2026-04-02 14:40:19 | Ateş Sensörü (H-02) | Değer: 37,9
+2026-04-02 14:40:19 | Oksijen Sensörü (SpO2) (H-03) | Değer: 86,0
